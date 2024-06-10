@@ -34,18 +34,15 @@ const App = () => {
     <Container fluid>
       <Row>
         {/* LEVÉ MENU */}
-        <Col lg={3}  className="bg-dark text-white d-flex flex-column justify-content-between p-4">
-          <div className="mr-4 mb-3 mt-3">
+        <Col md={2} className="bg-dark text-white d-flex flex-column justify-content-between vh-100 p-4">
+          <div className="mt-4">
             <LoadFile loadFile={handleLoadFile} />
           </div>
-          {/* Použití dynamického odsazení s Bootstrap třídami */}
-          
-            <NavigationButtons setShowRaw={setShowRaw} />
-          
+          <NavigationButtons setShowRaw={setShowRaw} />
         </Col>
 
         {/* RIGHT WINDOW */}
-        <Col lg={9}  className="bg-light vh-100 ">
+        <Col md={10} className="bg-light vh-100 overflow-auto">
           {isLoading ? (
             <div className="d-flex justify-content-center align-items-center min-vh-100">
               <img src={loadingImage} className="img-fluid" alt="Loading" />
@@ -55,19 +52,19 @@ const App = () => {
               {/* RIGHT WINDOW: Display stats */}
               {!showRaw && fileData && (
                 <>
-                  <Row className="mt-5">
+                  <Row className="m-4">
                     <Col>
                       <Statistic text={fileData} apiData={apiData} subData={"entityId"} />
                     </Col>
                   </Row>
              
               {/* RIGHT WINDOW: Display charts */}
-                  <Row className="m-3">
+                  <Row className="m-2">
                     <Col md={6}>
-                      <Card className="mb-4 mt-4 p-4 h-md-100" >
+                      <Card className="mb-4 mt-4 p-4 h-100" >
                         <Card.Body>
                           <Card.Title>EntityId Chart</Card.Title>
-                          <Card.Text className="">
+                          <Card.Text className="overflow-auto">
                             <ApiCall text={fileData} setApiData={setApiData} />
                             <ChartView apiData={apiData} subData={"entityId"} />
                             <div>This ID is from the localized Wikipedia for this document's language.</div>
@@ -76,7 +73,7 @@ const App = () => {
                       </Card>
                     </Col>
                     <Col md={6}>
-                      <Card className="mb-4 mt-4 p-4 h-md-100">
+                      <Card className="mb-4 mt-4 p-4 h-100">
                         <Card.Body>
                           <Card.Title>Type Chart</Card.Title>
                           <Card.Text>
@@ -95,17 +92,17 @@ const App = () => {
                 <Row className="p-4">
                   <Col md={8} >
                     <h1 className="mb-4">Raw Data</h1>
-                    <Card className="h-md-100" style={{ maxHeight: '85vh', overflowY: 'auto' }}>
+                    <Card className="h-100" style={{ maxHeight: '85vh', overflowY: 'auto' }}>
                       <Card.Body>                        
                         <Card.Text>{<BoldText text={fileData} wordsToHighlight={apiData} />}</Card.Text>
                       </Card.Body>
                     </Card>
                   </Col>
                 
-                  <Col md={4} className="overflow-lg-auto overflow-sm-hidden mt-md-0 mt-sm-5">
-                    <h1 className="mb-4 ">Entities</h1> 
+                  <Col md={4} className="overflow-auto ">
+                    <h1 className="mb-4">Entities</h1> 
                     {apiData.length > 0 && (
-                      <Card className="h-md-100" style={{ maxHeight: '85vh', overflowY: 'auto' }}>
+                      <Card className="h-100" style={{ maxHeight: '85vh', overflowY: 'auto' }}>
                         <Card.Body>
                           <Card.Text>
                             {apiData.map((entity, index) => (
