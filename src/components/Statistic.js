@@ -1,6 +1,6 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Container, Row, Col, Navbar, Card  } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 const Statistic = ( {text, apiData, subData} ) => {
     const wordCount = text.split(/\s+/).filter(word => word !== "").length;
