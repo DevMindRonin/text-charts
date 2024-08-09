@@ -1,11 +1,15 @@
-### About
-The application searches for Entities inside the *.txt file. 
+# TextCharts
 
-### Purpose
-It displays the searched entities via TextRazor Api in a graph with statistical data or as raw data with the possibility to search their description on Wikipedia. 
+## About
+The application searches for entities within a `.txt` file. It displays the found entities via the TextRazor API in a graph with statistical data or as raw data, with the option to search for their descriptions on Wikipedia.
 
-### Stack
-It's programmed in React and runs through a custom back-end server on port 3001 and 3000 for front-end.
+## Stack
+It is programmed in React and runs on a custom back-end server, with the back-end on port 3001 and the front-end on port 3000.
 
-### How to start?
-You need to open two terminals. Type "node server" in the first and "npm start dev" in the second.
+## How to Start?
+1. Open two terminals in `Visual Studio`.
+2. Type `npm i` in both terminals to initialize the dependencies.
+3. In the first terminal, type `node server`.
+4. In the second terminal, type `npm start dev`.
+5. The application will be running in the browser at `localhost:3000`.
+6. You can use the `/src/data.txt` file for the first analysis.
